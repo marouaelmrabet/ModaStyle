@@ -1,0 +1,71 @@
+{
+    "project": "ModaStyle",
+    "created_at": "2026-11-09T19:45:32.930321+00:00",
+    "pipeline_version": "1.0",
+    "document_count": 7,
+    "documents": [
+        {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": "data/raw/presentation_boutique.md",
+            "source_sha256": "949928f0e995ea53e4c7e5a39726fcd5819889365d07854aa51637e8c5305716",
+            "processed_sha256": "de23721d432797bc1d9e9f8845b5796ccbb14ab892f0ed47f41a9e9cf8d880f7",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": "data/raw/catalogue_produits.md",
+            "source_sha256": "3e2c673a424ec35ee1d15f19291fff6862047701a2670514fc1f62b5e6ab9f2e",
+            "processed_sha256": "d81ad30f04dd31a654219e90d2f834f0e796dd648538f477f8c47f3b9b8cd902",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": "data/raw/livraison.md",
+            "source_sha256": "66f5e06af020ed71bd85a3adcb300c8f80227429cdd033e35ae6389d4dc66cfc",
+            "processed_sha256": "da2192343cdc1334abcda7c5f47801d69a4b14398a443221fe368ecd69ba53ec",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": "data/raw/retours_remboursements.md",
+            "source_sha256": "978b83cb4f533de45c0e0f763e7b611b1212d5cd0acd0d1223540e8921bc7604",
+            "processed_sha256": "d3877b5e85cfccaa90d1b6b58e2c5efb2f2ef866a3c278efd3ac559e79b7eb9f",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": "data/raw/paiements.md",
+            "source_sha256": "1a82e481c79b8c71947b64d7432a6ada5055c64041310808f1b6900b52565280",
+            "processed_sha256": "17557be4ea71f470e1793f1bfcccd1bdfcd2ef7f3b643d906e70aea30a61864c",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-006",
+            "filename": "guide_tailles.md",
+            "version": "1.0",
+            "source": "data/raw/guide_tailles.md",
+            "source_sha256": "bb13228a9911b3e4de95d9f7c43022d0258fbda96683ad57decd9313fc8c86f7",
+            "processed_sha256": "fdbec2e73d7048219c672cf118751a1ba0340f3ed1c121404fa4304ca51e3821",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        },
+        {
+            "document_id": "MS-DOC-007",
+            "filename": "entretien_produits.md",
+            "version": "1.0",
+            "source": "data/raw/entretien_produits.md",
+            "source_sha256": "87495bc90095949ae68d2580fad69999ca38fb82babb46c5455bb12a27e884c0",
+            "processed_sha256": "0f5579b5a106b9be5b38bb466cafbe190c19efc6e269e3624e60edd4017f9505",
+            "status": "VALIDE_AUTOMATIQUEMENT"
+        }
+    ]
+}
