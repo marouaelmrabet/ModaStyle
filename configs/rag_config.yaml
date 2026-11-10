@@ -1,0 +1,23 @@
+project:
+  name: "ModaStyle"
+  language: "fr"
+
+chunking:
+  strategy: "markdown_paragraphs"
+  configurations:
+    A:
+      chunk_size: 500
+      chunk_overlap: 100
+    B:
+      chunk_size: 800
+      chunk_overlap: 120
+
+embeddings:
+  model_name: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  dimension: 384
+  normalize_embeddings: true
+
+vector_store:
+  provider: "chromadb"
+  distance_metric: "cosine"
+  collection_prefix: "modastyle"
