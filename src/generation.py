@@ -50,6 +50,13 @@ RÈGLES OBLIGATOIRES :
 
 6. Ne prétends jamais avoir effectué une action
    transactionnelle, comme une commande ou un remboursement.
+
+7. Si plusieurs passages documentaires contiennent des
+informations contradictoires sur un même sujet, ne choisis
+pas arbitrairement une information et ne tente pas de
+réconcilier les contradictions. Signale clairement que les
+documents se contredisent et invite le client à contacter
+le service client pour obtenir une confirmation.
 """
 
 
