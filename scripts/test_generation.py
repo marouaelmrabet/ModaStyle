@@ -2,67 +2,40 @@
 import sys
 from pathlib import Path
 
+# Ajouter la racine du projet au chemin de recherche Python
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-import chromadb
-from sentence_transformers import SentenceTransformer
-
-from src.retrieval import load_config, search
-from src.context_builder import build_context
-from src.generation import build_prompt
+from src.generation import generate_answer, FALLBACK_MESSAGE
 
 
-def main():
-    # Charger la configuration
-    config = load_config()
-    model_name = config["embeddings"]["model_name"]
+question = "Quel est le délai de livraison à Fès ?"
 
-    # Charger le modèle d'embeddings
-    print("Chargement du modèle...")
-    model = SentenceTransformer(model_name)
+context = """
+[Source : livraison.md | Document : MS-DOC-003 | Version : 1.0]
 
-    # Connexion à ChromaDB
-    db_dir = PROJECT_ROOT / "data" / "chroma_db"
-    client = chromadb.PersistentClient(path=str(db_dir))
+Les délais de livraison pour les principales villes,
+dont Fès, sont de 2 à 3 jours ouvrables.
+"""
 
-    # Question du client
-    question = "Quel est le délai de livraison à Fès ?"
+print("========== QUESTION ==========")
+print(question)
 
-    print("\nQuestion :", question)
+print("\n========== REPONSE GROQ ==========")
 
-    # Étape 1 : Retrieval
-    chunks = search(
-        question=question,
-        config_name="A",
-        model=model,
-        client=client,
-        top_k=5
-    )
+answer = generate_answer(question, context)
+print(answer)
 
-    # Étape 2 : Assemblage du contexte
-    context_result = build_context(chunks)
+print("\n========== TEST SANS CONTEXTE ==========")
 
-    context = context_result["context"]
-    references = context_result["references"]
+answer_without_context = generate_answer(
+    "Quels sont les horaires de la boutique ?",
+    ""
+)
 
-    # Étape 3 : Construction du prompt
-    prompt = build_prompt(question, context)
+print(answer_without_context)
 
-    # Afficher le prompt
-    print("\n========== PROMPT CONSTRUIT ==========")
-    print(prompt)
-
-    # Afficher les références disponibles
-    print("\n========== RÉFÉRENCES DOCUMENTAIRES ==========")
-
-    for reference in references:
-        print(
-            f"- {reference['document_id']} | "
-            f"{reference['filename']} | "
-            f"Version {reference['version']}"
-        )
-
-
-if __name__ == "__main__":
-    main()
+print(
+    "\nRéponse de secours respectée :",
+    answer_without_context == FALLBACK_MESSAGE
+)
