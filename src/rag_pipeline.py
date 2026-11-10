@@ -5,28 +5,42 @@ import chromadb
 import yaml
 from sentence_transformers import SentenceTransformer
 
+from src.input_guard import is_suspicious_input
 from src.context_builder import build_context
 from src.generation import generate_answer
 from src.retrieval import search
 
 
-# Chemin racine du projet
+# ==================================================
+# 1. CONFIGURATION DU PROJET
+# ==================================================
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 CONFIG_PATH = PROJECT_ROOT / "configs" / "rag_config.yaml"
 DB_DIR = PROJECT_ROOT / "data" / "chroma_db"
 
 
+# ==================================================
+# 2. CLASSE PRINCIPALE DU PIPELINE RAG
+# ==================================================
+
 class RAGPipeline:
+
     """
     Pipeline RAG complet de ModaStyle.
 
     Il assure :
+    - la vérification de sécurité des questions ;
     - la recherche documentaire ;
     - le filtrage des passages ;
     - la construction du contexte ;
-    - la génération de la réponse.
+    - la génération de la réponse avec Groq.
     """
+
+    # ----------------------------------------------
+    # Initialisation
+    # ----------------------------------------------
 
     def __init__(self, config_name="A", top_k=5):
 
@@ -53,23 +67,30 @@ class RAGPipeline:
             path=str(DB_DIR)
         )
 
-        # Vérifier que la collection existe
+        # Vérifier l'existence de la collection
         collection_name = f"modastyle_{self.config_name.lower()}"
 
         try:
             self.client.get_collection(name=collection_name)
+
         except Exception as error:
             raise RuntimeError(
                 f"La collection {collection_name} est introuvable. "
                 "Vérifie le stockage vectoriel."
             ) from error
 
+    # ----------------------------------------------
+    # Traitement d'une question
+    # ----------------------------------------------
+
     def ask(self, question):
+
         """
         Traite une question et retourne
         une réponse avec les références documentaires.
         """
 
+        # Vérifier que la question n'est pas vide
         if not question or not question.strip():
             raise ValueError(
                 "La question ne peut pas être vide."
@@ -77,7 +98,30 @@ class RAGPipeline:
 
         question = question.strip()
 
-        # 1. Recherche documentaire
+        # ------------------------------------------
+        # 1. Vérification de sécurité
+        # ------------------------------------------
+
+        if is_suspicious_input(question):
+
+            return {
+                "question": question,
+                "answer": (
+                    "Je ne peux pas traiter cette demande. "
+                    "Je suis uniquement destiné à répondre "
+                    "aux questions concernant ModaStyle."
+                ),
+                "references": [],
+                "retrieved_count": 0,
+                "filtered_count": 0,
+                "configuration": self.config_name,
+                "blocked": True
+            }
+
+        # ------------------------------------------
+        # 2. Recherche documentaire
+        # ------------------------------------------
+
         retrieved_chunks = search(
             question=question,
             config_name=self.config_name,
@@ -86,7 +130,10 @@ class RAGPipeline:
             top_k=self.top_k
         )
 
-        # 2. Filtrage et construction du contexte
+        # ------------------------------------------
+        # 3. Construction du contexte
+        # ------------------------------------------
+
         context_data = build_context(
             question,
             retrieved_chunks
@@ -95,13 +142,19 @@ class RAGPipeline:
         context = context_data["context"]
         references = context_data["references"]
 
-        # 3. Génération de la réponse
+        # ------------------------------------------
+        # 4. Génération de la réponse avec Groq
+        # ------------------------------------------
+
         answer = generate_answer(
             question=question,
             context=context
         )
 
-        # 4. Retourner les résultats
+        # ------------------------------------------
+        # 5. Retourner les résultats
+        # ------------------------------------------
+
         return {
             "question": question,
             "answer": answer,
@@ -110,37 +163,57 @@ class RAGPipeline:
             "filtered_count": len(
                 context_data["filtered_chunks"]
             ),
-            "configuration": self.config_name
+            "configuration": self.config_name,
+            "blocked": False
         }
 
 
+# ==================================================
+# 3. EXÉCUTION DIRECTE DU PIPELINE
+# ==================================================
+
 if __name__ == "__main__":
 
+    # Initialiser le pipeline
     pipeline = RAGPipeline(
         config_name="A",
         top_k=5
     )
 
+    # Question de test
     question = "Quel est le délai de livraison à Fès ?"
 
+    # Exécuter le pipeline
     result = pipeline.ask(question)
 
+    # Afficher la question
     print("\n========== QUESTION ==========")
     print(result["question"])
 
+    # Afficher la réponse
     print("\n========== REPONSE ==========")
     print(result["answer"])
 
+    # Afficher les références
     print("\n========== REFERENCES DOCUMENTAIRES ==========")
 
-    for reference in result["references"]:
-        print(
-            f"- {reference['document_id']} | "
-            f"{reference['filename']} | "
-            f"Version {reference['version']}"
-        )
+    if result["references"]:
 
+        for reference in result["references"]:
+
+            print(
+                f"- {reference['document_id']} | "
+                f"{reference['filename']} | "
+                f"Version {reference['version']}"
+            )
+
+    else:
+        print("Aucune référence documentaire.")
+
+    # Afficher les informations techniques
     print("\n========== INFORMATIONS DU PIPELINE ==========")
+
     print("Configuration :", result["configuration"])
     print("Passages récupérés :", result["retrieved_count"])
     print("Passages retenus :", result["filtered_count"])
+    print("Question bloquée :", result["blocked"])
