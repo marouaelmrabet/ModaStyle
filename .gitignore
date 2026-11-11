@@ -6,3 +6,5 @@ __pycache__/
 *.log
 mlruns/
 data/chroma_db/
+mlflow.db
+mlartifacts/
