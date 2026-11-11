@@ -1,0 +1,50 @@
+{
+  "A": {
+    "nombre_questions": 15,
+    "scores": {
+      "correctness": {
+        "total": 23,
+        "moyenne": 1.53,
+        "pourcentage": 76.67
+      },
+      "faithfulness": {
+        "total": 28,
+        "moyenne": 1.87,
+        "pourcentage": 93.33
+      },
+      "relevance": {
+        "total": 24,
+        "moyenne": 1.6,
+        "pourcentage": 80.0
+      }
+    },
+    "score_global": {
+      "moyenne_sur_2": 1.67,
+      "pourcentage": 83.33
+    }
+  },
+  "B": {
+    "nombre_questions": 15,
+    "scores": {
+      "correctness": {
+        "total": 28,
+        "moyenne": 1.87,
+        "pourcentage": 93.33
+      },
+      "faithfulness": {
+        "total": 28,
+        "moyenne": 1.87,
+        "pourcentage": 93.33
+      },
+      "relevance": {
+        "total": 28,
+        "moyenne": 1.87,
+        "pourcentage": 93.33
+      }
+    },
+    "score_global": {
+      "moyenne_sur_2": 1.87,
+      "pourcentage": 93.33
+    }
+  }
+}

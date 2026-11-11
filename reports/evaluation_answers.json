@@ -1,0 +1,1017 @@
+[
+  {
+    "configuration": "A",
+    "nombre_questions": 15,
+    "resultats": [
+      {
+        "id": "Q01",
+        "question": "Quel est le délai de livraison à Fès ?",
+        "answer_available": true,
+        "reference_answer": "Le délai de livraison à Fès est de 2 à 3 jours ouvrables.",
+        "key_facts": [
+          "Fès",
+          "2 à 3 jours ouvrables"
+        ],
+        "generated_answer": "Le délai de livraison à Fès est de **2 à 3 jours ouvrables** à partir de la confirmation de la commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 4,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q02",
+        "question": "Combien coûte la livraison pour une commande de 300 MAD ?",
+        "answer_available": true,
+        "reference_answer": "Les frais de livraison sont de 30 MAD pour une commande inférieure à 500 MAD.",
+        "key_facts": [
+          "30 MAD",
+          "commande inférieure à 500 MAD"
+        ],
+        "generated_answer": "Les frais de livraison pour une commande inférieure à 500 MAD s’élèvent à **30 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 4,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q03",
+        "question": "À partir de quel montant la livraison est-elle gratuite ?",
+        "answer_available": true,
+        "reference_answer": "La livraison est gratuite à partir de 500 MAD.",
+        "key_facts": [
+          "500 MAD",
+          "livraison gratuite"
+        ],
+        "generated_answer": "La livraison est gratuite pour les commandes dont le montant atteint ou dépasse **500 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q04",
+        "question": "Quelle est la durée autorisée pour demander un retour ?",
+        "answer_available": true,
+        "reference_answer": "Le client dispose de 14 jours calendaires à partir de la réception pour demander un retour.",
+        "key_facts": [
+          "14 jours calendaires",
+          "à partir de la réception"
+        ],
+        "generated_answer": "Le délai autorisé pour demander un retour est de **14 jours calendaires** à compter de la date de réception de votre commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q05",
+        "question": "Quelles sont les conditions pour obtenir un remboursement ?",
+        "answer_available": true,
+        "reference_answer": "Le produit doit être inutilisé, non porté, non lavé, avec ses étiquettes, son emballage d'origine et une preuve d'achat. Le remboursement intervient dans les 7 jours ouvrables suivant la réception et la validation de la qualité du produit.",
+        "key_facts": [
+          "produit inutilisé",
+          "étiquettes",
+          "emballage d'origine",
+          "preuve d'achat",
+          "7 jours ouvrables après réception et validation"
+        ],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 0,
+          "faithfulness": 2,
+          "relevance": 0,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q06",
+        "question": "Quels moyens de paiement sont acceptés par ModaStyle ?",
+        "answer_available": true,
+        "reference_answer": "ModaStyle accepte le paiement à la livraison, la carte bancaire via CMI et le virement bancaire selon les informations fournies par le service client.",
+        "key_facts": [
+          "paiement à la livraison",
+          "carte via CMI",
+          "virement bancaire"
+        ],
+        "generated_answer": "Les moyens de paiement acceptés par ModaStyle sont :\n\n1. **Paiement à la livraison** – le client peut régler son achat directement lors de la réception de la commande.  \n2. **Paiement par carte bancaire** – via une solution de paiement électronique utilisant le système CMI, le paiement se fait en ligne au moment de la commande.\n\nTous les paiements sont exprimés en dirhams marocains (MAD).",
+        "references": [
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 4,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 1,
+          "faithfulness": 2,
+          "relevance": 1,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q07",
+        "question": "Quelles sont les mesures de poitrine pour la taille M ?",
+        "answer_available": true,
+        "reference_answer": "La mesure indicative de poitrine pour la taille M est de 89 à 94 cm.",
+        "key_facts": [
+          "taille M",
+          "89 à 94 cm"
+        ],
+        "generated_answer": "Pour la taille **M**, la mesure de poitrine indiquée dans le guide est **entre 89 cm et 94 cm**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-006",
+            "filename": "guide_tailles.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q08",
+        "question": "Quel est le prix de la robe casual en coton ?",
+        "answer_available": true,
+        "reference_answer": "La robe casual en coton coûte 249 MAD.",
+        "key_facts": [
+          "robe casual en coton",
+          "249 MAD"
+        ],
+        "generated_answer": "Le prix de la robe casual en coton est de **249 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q09",
+        "question": "Quel est le prix du T-shirt classique pour homme ?",
+        "answer_available": true,
+        "reference_answer": "Le T-shirt classique pour homme coûte 99 MAD.",
+        "key_facts": [
+          "T-shirt classique",
+          "99 MAD"
+        ],
+        "generated_answer": "Les documents fournis indiquent deux prix différents pour le **T‑shirt classique pour homme** :\n\n- 229 MAD  \n- 99 MAD  \n\nCes informations se contredisent. Pour connaître le prix exact, merci de contacter notre service client.",
+        "references": [
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 0,
+          "faithfulness": 0,
+          "relevance": 1,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q10",
+        "question": "Comment entretenir un sac en simili cuir ?",
+        "answer_available": true,
+        "reference_answer": "Pour entretenir un sac en simili cuir, ModaStyle recommande de le nettoyer délicatement avec un chiffon doux légèrement humide, d'éviter les produits chimiques agressifs et de ne pas l'immerger dans l'eau. Il faut également le conserver dans un endroit sec, à l'abri de la chaleur excessive, et éviter les frottements susceptibles d'endommager sa surface.",
+        "key_facts": [
+          "simili cuir",
+          "nettoyage doux",
+          "éviter les produits agressifs",
+          "respecter les instructions d'entretien"
+        ],
+        "generated_answer": "Pour entretenir un sac en simili cuir, suivez ces recommandations :\n\n- Nettoyez délicatement avec un chiffon doux légèrement humide.  \n- Évitez les produits chimiques agressifs.  \n- Ne pas immerger le sac dans l’eau.  \n- Conservez le sac dans un endroit sec, à l’abri de la chaleur excessive.  \n- Évitez les frottements susceptibles d’endommager la surface.",
+        "references": [
+          {
+            "document_id": "MS-DOC-007",
+            "filename": "entretien_produits.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q11",
+        "question": "En quelle année ModaStyle a-t-elle été créée ?",
+        "answer_available": true,
+        "reference_answer": "ModaStyle a été créée en 2026.",
+        "key_facts": [
+          "2026"
+        ],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [],
+        "retrieved_count": 5,
+        "filtered_count": 0,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 0,
+          "faithfulness": 2,
+          "relevance": 0,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q12",
+        "question": "Quels sont les délais de livraison dans les villes principales ?",
+        "answer_available": true,
+        "reference_answer": "Dans les villes principales de Casablanca, Rabat, Fès et Marrakech, le délai de livraison est de 2 à 3 jours ouvrables.",
+        "key_facts": [
+          "Casablanca",
+          "Rabat",
+          "Fès",
+          "Marrakech",
+          "2 à 3 jours ouvrables"
+        ],
+        "generated_answer": "Les délais de livraison pour les grandes villes (Casablanca, Rabat, Fès et Marrakech) sont annoncés à **2 à 3 jours ouvrables** à partir de la confirmation de la commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 5,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q13",
+        "question": "Quels sont les horaires d'ouverture du service client de ModaStyle ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-007",
+            "filename": "entretien_produits.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 5,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q14",
+        "question": "Quel est le numéro de compte bancaire de ModaStyle pour effectuer un virement ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q15",
+        "question": "Quels produits sont actuellement en stock ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [],
+        "retrieved_count": 5,
+        "filtered_count": 0,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      }
+    ]
+  },
+  {
+    "configuration": "B",
+    "nombre_questions": 15,
+    "resultats": [
+      {
+        "id": "Q01",
+        "question": "Quel est le délai de livraison à Fès ?",
+        "answer_available": true,
+        "reference_answer": "Le délai de livraison à Fès est de 2 à 3 jours ouvrables.",
+        "key_facts": [
+          "Fès",
+          "2 à 3 jours ouvrables"
+        ],
+        "generated_answer": "Le délai de livraison à Fès est de **2 à 3 jours ouvrables**, à partir de la confirmation de la commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q02",
+        "question": "Combien coûte la livraison pour une commande de 300 MAD ?",
+        "answer_available": true,
+        "reference_answer": "Les frais de livraison sont de 30 MAD pour une commande inférieure à 500 MAD.",
+        "key_facts": [
+          "30 MAD",
+          "commande inférieure à 500 MAD"
+        ],
+        "generated_answer": "Les frais de livraison pour une commande de 300 MAD s’élèvent à **30 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 5,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q03",
+        "question": "À partir de quel montant la livraison est-elle gratuite ?",
+        "answer_available": true,
+        "reference_answer": "La livraison est gratuite à partir de 500 MAD.",
+        "key_facts": [
+          "500 MAD",
+          "livraison gratuite"
+        ],
+        "generated_answer": "La livraison est gratuite pour les commandes dont le montant atteint ou dépasse **500 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q04",
+        "question": "Quelle est la durée autorisée pour demander un retour ?",
+        "answer_available": true,
+        "reference_answer": "Le client dispose de 14 jours calendaires à partir de la réception pour demander un retour.",
+        "key_facts": [
+          "14 jours calendaires",
+          "à partir de la réception"
+        ],
+        "generated_answer": "La durée autorisée pour demander un retour est de **14 jours calendaires** à compter de la date de réception de votre commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q05",
+        "question": "Quelles sont les conditions pour obtenir un remboursement ?",
+        "answer_available": true,
+        "reference_answer": "Le produit doit être inutilisé, non porté, non lavé, avec ses étiquettes, son emballage d'origine et une preuve d'achat. Le remboursement intervient dans les 7 jours ouvrables suivant la réception et la validation de la qualité du produit.",
+        "key_facts": [
+          "produit inutilisé",
+          "étiquettes",
+          "emballage d'origine",
+          "preuve d'achat",
+          "7 jours ouvrables après réception et validation"
+        ],
+        "generated_answer": "Pour obtenir un remboursement, le client doit :\n\n1. **Retourner l’article** conformément aux conditions de retour (celles qui s’appliquent à un échange, par exemple).  \n2. **Faire valider l’article retourné** par le service qualité après réception du colis.  \n\nUne fois ces étapes complétées, le remboursement est effectué dans un délai de **7 jours ouvrés** et peut être réalisé soit via le moyen de paiement initial, soit par virement bancaire.",
+        "references": [
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 1,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q06",
+        "question": "Quels moyens de paiement sont acceptés par ModaStyle ?",
+        "answer_available": true,
+        "reference_answer": "ModaStyle accepte le paiement à la livraison, la carte bancaire via CMI et le virement bancaire selon les informations fournies par le service client.",
+        "key_facts": [
+          "paiement à la livraison",
+          "carte via CMI",
+          "virement bancaire"
+        ],
+        "generated_answer": "Les moyens de paiement acceptés par ModaStyle sont les suivants :\n\n1. **Paiement à la livraison** – règlement en espèces (ou autre moyen accepté) lors de la réception du colis.  \n2. **Paiement par carte bancaire** – via une solution de paiement électronique utilisant le système CMI, effectué en ligne au moment de la commande.  \n3. **Paiement par virement bancaire** – le client doit effectuer le virement selon les coordonnées communiquées par le service client.  \n\nPour toute précision supplémentaire, n’hésitez pas à contacter notre service client.",
+        "references": [
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 4,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 1,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q07",
+        "question": "Quelles sont les mesures de poitrine pour la taille M ?",
+        "answer_available": true,
+        "reference_answer": "La mesure indicative de poitrine pour la taille M est de 89 à 94 cm.",
+        "key_facts": [
+          "taille M",
+          "89 à 94 cm"
+        ],
+        "generated_answer": "Pour la taille **M**, le tour de poitrine est indicatif entre **89 cm et 94 cm**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-006",
+            "filename": "guide_tailles.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q08",
+        "question": "Quel est le prix de la robe casual en coton ?",
+        "answer_available": true,
+        "reference_answer": "La robe casual en coton coûte 249 MAD.",
+        "key_facts": [
+          "robe casual en coton",
+          "249 MAD"
+        ],
+        "generated_answer": "Le prix de la robe casual en coton est de **249 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q09",
+        "question": "Quel est le prix du T-shirt classique pour homme ?",
+        "answer_available": true,
+        "reference_answer": "Le T-shirt classique pour homme coûte 99 MAD.",
+        "key_facts": [
+          "T-shirt classique",
+          "99 MAD"
+        ],
+        "generated_answer": "Le prix du T‑shirt classique pour homme est de **99 MAD**.",
+        "references": [
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q10",
+        "question": "Comment entretenir un sac en simili cuir ?",
+        "answer_available": true,
+        "reference_answer": "Pour entretenir un sac en simili cuir, ModaStyle recommande de le nettoyer délicatement avec un chiffon doux légèrement humide, d'éviter les produits chimiques agressifs et de ne pas l'immerger dans l'eau. Il faut également le conserver dans un endroit sec, à l'abri de la chaleur excessive, et éviter les frottements susceptibles d'endommager sa surface.",
+        "key_facts": [
+          "simili cuir",
+          "nettoyage doux",
+          "éviter les produits agressifs",
+          "respecter les instructions d'entretien"
+        ],
+        "generated_answer": "Pour entretenir un sac en simili cuir, suivez ces recommandations :\n\n- Nettoyez délicatement avec un chiffon doux légèrement humide.  \n- Évitez les produits chimiques agressifs.  \n- Ne pas immerger le sac dans l’eau.  \n- Conservez le sac dans un endroit sec, à l’abri de la chaleur excessive.  \n- Évitez les frottements susceptibles d’endommager la surface.",
+        "references": [
+          {
+            "document_id": "MS-DOC-007",
+            "filename": "entretien_produits.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 2,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q11",
+        "question": "En quelle année ModaStyle a-t-elle été créée ?",
+        "answer_available": true,
+        "reference_answer": "ModaStyle a été créée en 2026.",
+        "key_facts": [
+          "2026"
+        ],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [],
+        "retrieved_count": 5,
+        "filtered_count": 0,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 0,
+          "faithfulness": 2,
+          "relevance": 0,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q12",
+        "question": "Quels sont les délais de livraison dans les villes principales ?",
+        "answer_available": true,
+        "reference_answer": "Dans les villes principales de Casablanca, Rabat, Fès et Marrakech, le délai de livraison est de 2 à 3 jours ouvrables.",
+        "key_facts": [
+          "Casablanca",
+          "Rabat",
+          "Fès",
+          "Marrakech",
+          "2 à 3 jours ouvrables"
+        ],
+        "generated_answer": "Les délais de livraison pour les grandes villes (Casablanca, Rabat, Fès et Marrakech) sont annoncés à **2 à 3 jours ouvrables** à partir de la confirmation de la commande.",
+        "references": [
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 4,
+        "blocked": false,
+        "fallback_expected": false,
+        "fallback_observed": false,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q13",
+        "question": "Quels sont les horaires d'ouverture du service client de ModaStyle ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-001",
+            "filename": "presentation_boutique.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-004",
+            "filename": "retours_remboursements.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-007",
+            "filename": "entretien_produits.md",
+            "version": "1.0",
+            "source": null
+          },
+          {
+            "document_id": "MS-DOC-003",
+            "filename": "livraison.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 5,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q14",
+        "question": "Quel est le numéro de compte bancaire de ModaStyle pour effectuer un virement ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-005",
+            "filename": "paiements.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 3,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      },
+      {
+        "id": "Q15",
+        "question": "Quels produits sont actuellement en stock ?",
+        "answer_available": false,
+        "reference_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "key_facts": [],
+        "generated_answer": "Je ne dispose pas de cette information dans la documentation de ModaStyle. Veuillez contacter notre service client pour obtenir davantage de précisions.",
+        "references": [
+          {
+            "document_id": "MS-DOC-002",
+            "filename": "catalogue_produits.md",
+            "version": "1.0",
+            "source": null
+          }
+        ],
+        "retrieved_count": 5,
+        "filtered_count": 1,
+        "blocked": false,
+        "fallback_expected": true,
+        "fallback_observed": true,
+        "manual_evaluation": {
+          "correctness": 2,
+          "faithfulness": 2,
+          "relevance": 2,
+          "comment": "Note proposée, à vérifier."
+        },
+        "error": null
+      }
+    ]
+  }
+]
