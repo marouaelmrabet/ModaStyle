@@ -1,12 +1,12 @@
 ﻿
-name: Tests automatises ModaStyle
+name: Tests et Quality Gates ModaStyle
 
 on:
   push:
   pull_request:
 
 jobs:
-  tests:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +18,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Installer les dependances du projet
+      - name: Installer les dependances
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-dev.txt
 
       - name: Executer les tests
         run: python -m pytest -v
+
+      - name: Executer les Quality Gates
+        run: python scripts/quality_gate.py

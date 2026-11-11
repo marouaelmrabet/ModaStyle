@@ -1,0 +1,87 @@
+{
+    "project": "ModaStyle",
+    "date": "2026-11-11T20:27:34.851898+00:00",
+    "decision": "ACCEPTE",
+    "total_controls": 14,
+    "passed": 14,
+    "failed": 0,
+    "thresholds": {
+        "recall_at_5": 0.95,
+        "correctness": 75.0,
+        "faithfulness": 90.0,
+        "relevance": 80.0,
+        "global_score": 80.0
+    },
+    "results": [
+        {
+            "controle": "Tests automatises",
+            "statut": "PASS",
+            "details": "Tous les tests sont reussis"
+        },
+        {
+            "controle": "Nombre de documents",
+            "statut": "PASS",
+            "details": "7 documents declares"
+        },
+        {
+            "controle": "Integrite SHA-256 du corpus",
+            "statut": "PASS",
+            "details": "Toutes les sources correspondent au manifeste"
+        },
+        {
+            "controle": "Configuration RAG",
+            "statut": "PASS",
+            "details": "Configuration A/B et parametres essentiels valides"
+        },
+        {
+            "controle": "Recall@5 configuration A",
+            "statut": "PASS",
+            "details": "100.00% (seuil : 95%)"
+        },
+        {
+            "controle": "Recall@5 configuration B",
+            "statut": "PASS",
+            "details": "100.00% (seuil : 95%)"
+        },
+        {
+            "controle": "Correctness configuration A",
+            "statut": "PASS",
+            "details": "76.67% (seuil : 75%)"
+        },
+        {
+            "controle": "Faithfulness configuration A",
+            "statut": "PASS",
+            "details": "93.33% (seuil : 90%)"
+        },
+        {
+            "controle": "Relevance configuration A",
+            "statut": "PASS",
+            "details": "80.00% (seuil : 80%)"
+        },
+        {
+            "controle": "Score global configuration A",
+            "statut": "PASS",
+            "details": "83.33% (seuil : 80%)"
+        },
+        {
+            "controle": "Correctness configuration B",
+            "statut": "PASS",
+            "details": "93.33% (seuil : 75%)"
+        },
+        {
+            "controle": "Faithfulness configuration B",
+            "statut": "PASS",
+            "details": "93.33% (seuil : 90%)"
+        },
+        {
+            "controle": "Relevance configuration B",
+            "statut": "PASS",
+            "details": "93.33% (seuil : 80%)"
+        },
+        {
+            "controle": "Score global configuration B",
+            "statut": "PASS",
+            "details": "93.33% (seuil : 80%)"
+        }
+    ]
+}
