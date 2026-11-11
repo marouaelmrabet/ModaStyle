@@ -1,0 +1,11 @@
+
+{"id":"Q01","question":"Quel est le délai de livraison à Fès ?","expected_document_ids":["MS-DOC-003"]}
+{"id":"Q02","question":"Combien coûte la livraison pour une commande de 300 MAD ?","expected_document_ids":["MS-DOC-003"]}
+{"id":"Q03","question":"Quelle est la durée autorisée pour demander un retour ?","expected_document_ids":["MS-DOC-004"]}
+{"id":"Q04","question":"Quels moyens de paiement sont acceptés par ModaStyle ?","expected_document_ids":["MS-DOC-005"]}
+{"id":"Q05","question":"Quelles sont les mesures de poitrine pour la taille M ?","expected_document_ids":["MS-DOC-006"]}
+{"id":"Q06","question":"Comment entretenir un sac en simili cuir ?","expected_document_ids":["MS-DOC-007"]}
+{"id":"Q07","question":"Quel est le prix de la robe casual en coton ?","expected_document_ids":["MS-DOC-002"]}
+{"id":"Q08","question":"En quelle année ModaStyle a-t-elle été créée ?","expected_document_ids":["MS-DOC-001"]}
+{"id":"Q09","question":"À partir de quel montant la livraison est-elle gratuite ?","expected_document_ids":["MS-DOC-003"]}
+{"id":"Q10","question":"Quelles sont les conditions pour obtenir un remboursement ?","expected_document_ids":["MS-DOC-004"]}

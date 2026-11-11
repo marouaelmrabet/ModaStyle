@@ -1,0 +1,20 @@
+[
+    {
+        "configuration": "A",
+        "hits": 10,
+        "total": 10,
+        "hit_at_5": 1.0,
+        "document_precision": 0.495,
+        "average_unique_documents": 2.6,
+        "average_time_seconds": 0.0628
+    },
+    {
+        "configuration": "B",
+        "hits": 10,
+        "total": 10,
+        "hit_at_5": 1.0,
+        "document_precision": 0.4367,
+        "average_unique_documents": 2.5,
+        "average_time_seconds": 0.0629
+    }
+]
