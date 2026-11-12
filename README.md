@@ -104,7 +104,24 @@ Lors de la dernière validation locale, les contrôles qualité ont donné :
 
 Le rapport est disponible dans `reports/quality_gate_report.json`.
 
-## 7. Lancement de l'application
+## 7. Monitoring et observabilité
+
+Le projet intègre un système de monitoring permettant de suivre :
+
+- **Qualité RAG :** Recall@5, Correctness, Faithfulness, Relevance et score global.
+- **Erreurs :** nombre de requêtes échouées et taux d'erreur.
+- **Latence :** temps de réponse moyen et percentile 95 (P95).
+- **Consommation :** nombre de tokens utilisés par l'API Groq.
+
+Les indicateurs sont accessibles via l'endpoint :
+
+`http://127.0.0.1:8000/monitoring`
+
+Les journaux sont stockés localement dans `logs/`, un dossier exclu du dépôt Git.
+
+Les métriques de qualité proviennent du dernier rapport d'évaluation `reports/quality_gate_report.json`. Le suivi des tokens est réalisé lorsque les informations sont disponibles auprès de Groq. Le coût financier n'est pas calculé automatiquement.
+
+## 8. Lancement de l'application
 
 Après installation des dépendances et configuration de la clé API Groq dans le fichier `.env`, lancer l'application avec :
 
@@ -116,13 +133,13 @@ Accéder à l'interface depuis :
 
 http://127.0.0.1:8000
 
-## 8. Documentation et reproductibilité
+## 9. Documentation et reproductibilité
 
 Les procédures détaillées concernant l'installation, la configuration, la préparation du corpus, la reconstruction de la base vectorielle, les tests et l'exécution du projet sont présentées dans le document suivant :
 
 **Consulter le dossier de reproductibilité** : docs/DOSSIER_REPRODUCTIBILITE.md
 
-## 9. Limites et perspectives
+## 10. Limites et perspectives
 
 La qualité des réponses dépend de la couverture du corpus documentaire et de la pertinence des passages récupérés.
 
@@ -131,10 +148,10 @@ Les principales perspectives d'amélioration sont :
 - Enrichir le corpus documentaire.
 - Améliorer les stratégies de recherche.
 - Étendre le jeu d'évaluation.
-- Renforcer le monitoring de la latence, des erreurs et des coûts.
+- Améliorer le suivi des coûts financiers et enrichir les indicateurs de monitoring.
 - Améliorer continuellement les mécanismes de sécurité.
 
-## 10. Auteur et dépôt
+## 11. Auteur et dépôt
 
 **Projet académique :** Industrialisation d'un assistant intelligent basé sur RAG.
 

@@ -1,8 +1,8 @@
-
 from pathlib import Path
 import sys
+import time
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.rag_pipeline import RAGPipeline
+from src.monitoring import record_request, get_monitoring_stats, get_quality_stats
 
 # Initialiser l'application
 app = FastAPI(
@@ -242,15 +243,41 @@ def accueil():
 
 @app.post("/ask")
 def poser_question(data: Question):
-    result = pipeline.ask(data.question)
+    start_time = time.perf_counter()
 
-    return {
-        "answer": result["answer"],
-        "references": result["references"],
-        "configuration": result["configuration"],
-        "blocked": result["blocked"]
-    }
+    try:
+        result = pipeline.ask(data.question)
 
+        latency_ms = (time.perf_counter() - start_time) * 1000
+
+        record_request(
+            latency_ms=latency_ms,
+            status="success",
+            prompt_tokens=result.get("prompt_tokens"),
+            completion_tokens=result.get("completion_tokens"),
+            total_tokens=result.get("total_tokens")
+        )
+
+        return {
+            "answer": result["answer"],
+            "references": result["references"],
+            "configuration": result["configuration"],
+            "blocked": result["blocked"]
+        }
+
+    except Exception as error:
+        latency_ms = (time.perf_counter() - start_time) * 1000
+
+        record_request(
+            latency_ms=latency_ms,
+            status="error",
+            error_type=type(error).__name__
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail="Une erreur est survenue lors du traitement de votre question."
+        )
 
 @app.get("/health")
 def health():
@@ -259,3 +286,8 @@ def health():
         "application": "ModaStyle",
         "configuration": "B"
     }
+@app.get("/monitoring")
+def monitoring():
+    stats = get_monitoring_stats()
+    stats["quality"] = get_quality_stats()
+    return stats

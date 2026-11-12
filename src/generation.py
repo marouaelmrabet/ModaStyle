@@ -81,14 +81,19 @@ ce message :
 """.strip()
 
 
-def generate_answer(question, context):
+
+def generate_answer_with_usage(question, context):
     """
-    Envoie la question et le contexte à Groq
-    et retourne la réponse générée.
+    Génère une réponse et retourne les statistiques de consommation Groq.
     """
 
     if not context or not context.strip():
-        return FALLBACK_MESSAGE
+        return {
+            "answer": FALLBACK_MESSAGE,
+            "prompt_tokens": None,
+            "completion_tokens": None,
+            "total_tokens": None
+        }
 
     api_key = os.getenv("GROQ_API_KEY")
 
@@ -98,20 +103,13 @@ def generate_answer(question, context):
         )
 
     client = Groq(api_key=api_key)
-
     user_prompt = build_prompt(question, context)
 
     response = client.chat.completions.create(
         model=MODEL_NAME,
         messages=[
-            {
-                "role": "system",
-                "content": SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": user_prompt
-            }
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt}
         ],
         temperature=0.2,
         max_completion_tokens=1500
@@ -120,6 +118,23 @@ def generate_answer(question, context):
     answer = response.choices[0].message.content
 
     if not answer or not answer.strip():
-        return FALLBACK_MESSAGE
+        answer = FALLBACK_MESSAGE
+    else:
+        answer = answer.strip()
 
-    return answer.strip()
+    usage = response.usage
+
+    return {
+        "answer": answer,
+        "prompt_tokens": usage.prompt_tokens if usage else None,
+        "completion_tokens": usage.completion_tokens if usage else None,
+        "total_tokens": usage.total_tokens if usage else None
+    }
+
+
+def generate_answer(question, context):
+    """
+    Conserve l'ancienne interface : retourne uniquement la réponse.
+    """
+    result = generate_answer_with_usage(question, context)
+    return result["answer"]

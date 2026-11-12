@@ -3,7 +3,7 @@
 **Projet :** Industrialisation d'un assistant RAG pour ModaStyle
 **Version du projet :** 1.0
 **Langue :** Français
-**Dépôt GitHub :** [https://github.com/marouaelmrabet/ModaStyle](https://github.com/marouaelmrabet/ModaStyle)
+**Dépôt GitHub :** https://github.com/marouaelmrabet/ModaStyle
 
 ---
 
@@ -209,6 +209,7 @@ L'application expose également :
 - `GET /` : interface utilisateur.
 - `POST /ask` : traitement des questions.
 - `GET /health` : vérification de disponibilité.
+- `GET /monitoring` : consultation des indicateurs de qualité et de performance.
 
 Le terminal qui exécute Uvicorn doit rester ouvert pendant l'utilisation de l'application.
 
@@ -338,4 +339,44 @@ Les réponses générées par un modèle de langage peuvent varier. Les résulta
 
 ---
 
+## Monitoring et observabilité
+
+Le projet ModaStyle intègre un système de monitoring minimal permettant de suivre les performances techniques et la qualité du système RAG.
+
+### 1. Suivi des requêtes et des erreurs
+Chaque requête est enregistrée avec son statut (succès ou erreur), sa durée de traitement et, lorsqu'ils sont disponibles, les tokens consommés. Les erreurs sont également consignées dans un journal dédié.
+
+### 2. Suivi de la latence
+Le système calcule la latence moyenne et le percentile 95 (P95), afin de suivre le temps de réponse de l'assistant.
+
+### 3. Suivi de la consommation
+Le nombre de tokens d'entrée et de sortie fournis par l'API Groq est enregistré lorsqu'il est disponible. Le coût financier n'est pas calculé automatiquement.
+
+### 4. Suivi de la qualité RAG
+Le monitoring récupère les résultats du dernier rapport `reports/quality_gate_report.json`, notamment :
+- Recall@5 ;
+- Correctness ;
+- Faithfulness ;
+- Relevance ;
+- Score global.
+
+Ces métriques sont issues de l'évaluation périodique du corpus de questions, et non d'une mesure automatique de chaque réponse en temps réel.
+
+### 5. Accès au monitoring
+Après démarrage de l'application, les indicateurs sont consultables à l'adresse :
+
+`http://127.0.0.1:8000/monitoring`
+
+Les journaux techniques sont stockés localement dans le dossier `logs/`, exclu du dépôt Git.
+
+### 6. Résultat de validation
+Lors de la validation du 12 novembre 2026 :
+- 2 requêtes enregistrées ;
+- 0 erreur ;
+- latence moyenne : 1 782,29 ms ;
+- latence P95 : 3 314,58 ms ;
+- consommation totale : 1 261 tokens ;
+- Quality Gate : 14 contrôles réussis sur 14.
+
+Ces résultats constituent une observation de validation et non une garantie de performances futures.
 **Fin du dossier de reproductibilité — ModaStyle**

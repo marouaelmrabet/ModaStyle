@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 
 from src.input_guard import is_suspicious_input
 from src.context_builder import build_context
-from src.generation import generate_answer
+from src.generation import generate_answer_with_usage
 from src.retrieval import search
 
 
@@ -146,11 +146,12 @@ class RAGPipeline:
         # 4. Génération de la réponse avec Groq
         # ------------------------------------------
 
-        answer = generate_answer(
+        generation_result = generate_answer_with_usage(
             question=question,
             context=context
         )
 
+        answer = generation_result["answer"]
         # ------------------------------------------
         # 5. Retourner les résultats
         # ------------------------------------------
@@ -164,7 +165,10 @@ class RAGPipeline:
                 context_data["filtered_chunks"]
             ),
             "configuration": self.config_name,
-            "blocked": False
+            "blocked": False,
+            "prompt_tokens": generation_result["prompt_tokens"],
+            "completion_tokens": generation_result["completion_tokens"],
+            "total_tokens": generation_result["total_tokens"]
         }
 
 

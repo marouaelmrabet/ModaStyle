@@ -23,3 +23,6 @@ data/chroma_db/
 # Fichiers système
 .DS_Store
 Thumbs.db
+
+# Monitoring local
+logs/
