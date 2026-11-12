@@ -432,7 +432,7 @@ Projet académique : industrialisation d'un assistant RAG.
 
 
 
-Dépôt GitHub : \[https://github.com/marouaelmrabet/ModaStyle](https://github.com/marouaelmrabet/ModaStyle)
+Dépôt GitHub : https://github.com/marouaelmrabet/ModaStyle
 
 
 
