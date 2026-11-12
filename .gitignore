@@ -1,10 +1,25 @@
+
+# Environnements virtuels Python
 .venv/
+venv/
+
+# Secrets et variables d'environnement
+.env
+
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.env
+
+# Journaux
 *.log
+
+# Bases et résultats locaux
 mlruns/
-data/chroma_db/
 mlflow.db
 mlartifacts/
+data/chroma_db/
+
+# Fichiers système
+.DS_Store
+Thumbs.db

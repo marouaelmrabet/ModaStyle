@@ -42,7 +42,7 @@ class RAGPipeline:
     # Initialisation
     # ----------------------------------------------
 
-    def __init__(self, config_name="A", top_k=5):
+    def __init__(self, config_name="B", top_k=5):
 
         self.config_name = config_name.upper()
         self.top_k = top_k
@@ -176,7 +176,7 @@ if __name__ == "__main__":
 
     # Initialiser le pipeline
     pipeline = RAGPipeline(
-        config_name="A",
+        config_name="B",
         top_k=5
     )
 

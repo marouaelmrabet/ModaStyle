@@ -114,7 +114,7 @@ def generate_answer(question, context):
             }
         ],
         temperature=0.2,
-        max_completion_tokens=500
+        max_completion_tokens=1500
     )
 
     answer = response.choices[0].message.content
