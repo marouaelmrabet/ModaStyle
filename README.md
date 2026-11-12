@@ -1,438 +1,142 @@
-ModaStyle — Assistant intelligent RAG
+# ModaStyle — Assistant intelligent basé sur RAG
 
-
-
-\## 1. Présentation du projet
-
-
+## 1. Présentation du projet
 
 ModaStyle est une boutique fictive spécialisée dans la mode au Maroc.
 
+Ce projet consiste à développer et industrialiser un assistant conversationnel intelligent basé sur la technologie RAG (Retrieval-Augmented Generation).
 
+L'assistant permet aux clients de poser des questions concernant les produits, les services et les conditions commerciales de ModaStyle. Il recherche les informations pertinentes dans un corpus documentaire, puis génère des réponses à partir des passages retrouvés.
 
-Ce projet consiste à développer et industrialiser un assistant conversationnel intelligent basé sur la technologie RAG (\*Retrieval-Augmented Generation\*).
+L'objectif principal est de fournir des réponses pertinentes, fiables et accompagnées de références documentaires, tout en limitant les informations inventées.
 
+## 2. Objectifs
 
+- Développer un assistant conversationnel destiné aux clients de ModaStyle.
+- Constituer et exploiter un corpus documentaire.
+- Mettre en place une chaîne de recherche et de génération RAG.
+- Comparer différentes configurations de découpage documentaire.
+- Évaluer la qualité et la fiabilité des réponses.
+- Industrialiser le projet avec des tests, des contrôles qualité et un suivi des expériences.
 
-L'assistant répond aux questions des clients en s'appuyant sur les documents de référence de la boutique afin de fournir des réponses pertinentes, fiables et accompagnées de sources.
+## 3. Technologies utilisées
 
+| Technologie           | Utilisation                 |
+| --------------------- | --------------------------- |
+| Python 3.12           | Développement               |
+| ChromaDB              | Base de données vectorielle |
+| Sentence Transformers | Génération des embeddings   |
+| MiniLM multilingue    | Modèle d'embedding          |
+| Groq API              | Génération des réponses     |
+| `openai/gpt-oss-20b`  | Modèle de langage           |
+| FastAPI               | Interface web               |
+| MLflow                | Suivi des expériences       |
+| Pytest                | Tests automatisés           |
+| GitHub Actions        | Intégration continue        |
 
+## 4. Architecture et organisation
 
-L'objectif est de limiter les réponses inventées et de garantir que les informations fournies proviennent du corpus documentaire.
+Le système suit le fonctionnement général d'une architecture RAG :
 
+1. Chargement et préparation des documents.
+2. Découpage du corpus en chunks.
+3. Génération des embeddings.
+4. Stockage dans ChromaDB.
+5. Recherche des passages pertinents.
+6. Génération d'une réponse à partir du contexte récupéré.
 
-
-\## 2. Objectifs
-
-
-
-\- Développer un assistant conversationnel destiné aux clients de ModaStyle.
-
-\- Constituer et organiser un corpus documentaire.
-
-\- Transformer les documents en vecteurs et les stocker dans une base vectorielle.
-
-\- Retrouver les passages pertinents pour répondre aux questions.
-
-\- Générer des réponses à partir du contexte documentaire.
-
-\- Refuser de répondre lorsque les informations nécessaires sont absentes.
-
-\- Évaluer les performances du système RAG.
-
-\- Mettre en place des tests, un suivi des expériences et des contrôles qualité.
-
-
-
-\## 3. Architecture technique
-
-
-
-Le projet repose sur les composants suivants :
-
-
-
-\- \*\*Python 3.12\*\* : langage de développement.
-
-\- \*\*ChromaDB\*\* : stockage et recherche vectorielle.
-
-\- \*\*Sentence Transformers\*\* : génération des embeddings avec `paraphrase-multilingual-MiniLM-L12-v2`.
-
-\- \*\*Groq API\*\* : génération des réponses avec le modèle `openai/gpt-oss-20b`.
-
-\- \*\*MLflow\*\* : suivi des expériences et des résultats.
-
-\- \*\*FastAPI\*\* : mise à disposition de l'application.
-
-\- \*\*Uvicorn\*\* : serveur d'exécution.
-
-\- \*\*Pytest\*\* : tests automatisés.
-
-\- \*\*Git et GitHub\*\* : gestion du code source et versionnement.
-
-\- \*\*GitHub Actions\*\* : intégration continue.
-
-
-
-\## 4. Organisation du projet
-
-
+Principaux dossiers du projet :
 
 ```text
-
 ModaStyle/
-
-│
-
-├── .github/              # Configuration de l'intégration continue
-
-├── configs/              # Configurations du pipeline RAG
-
-├── data/
-
-│   ├── raw/              # Documents sources
-
-│   ├── processed/        # Manifest et données préparées
-
-│   └── chroma\_db/        # Base vectorielle locale
-
-├── docs/                 # Documentation du projet
-
-├── interface/            # Interface utilisateur FastAPI
-
-├── reports/              # Rapports et résultats d'évaluation
-
-├── scripts/              # Scripts d'exécution et de vérification
-
-├── src/                  # Code source du système RAG
-
-├── tests/                # Tests automatisés
-
-├── .env.example          # Exemple de configuration des variables
-
-├── .gitignore            # Fichiers exclus du versionnement
-
-├── requirements.txt      # Dépendances du projet
-
-└── README.md             # Documentation principale
-
+├── .github/workflows/   # Intégration continue
+├── configs/             # Configurations RAG
+├── data/                # Corpus et données préparées
+├── docs/                # Documentation
+├── interface/           # Application FastAPI
+├── reports/             # Résultats et rapports
+├── scripts/             # Scripts utilitaires
+├── src/                 # Code source RAG
+├── tests/               # Tests automatisés
+├── README.md
+├── requirements.txt
+└── requirements-dev.txt
 ```
 
+## 5. Évaluation et résultats
 
+Deux configurations de découpage documentaire ont été comparées :
 
-\## 5. Installation et configuration
+- Configuration A : chunks de 500 caractères, chevauchement de 100.
+- Configuration B : chunks de 800 caractères, chevauchement de 120.
 
+L'évaluation porte sur la recherche documentaire et la qualité des réponses générées.
 
+### Résultats principaux
 
-\### Prérequis
+| Métrique     | Configuration A | Configuration B |
+| ------------ | --------------: | --------------: |
+| Recall\@5    |           100 % |           100 % |
+| Precision\@5 |         53,75 % |         44,72 % |
+| MRR          |           0,875 |          0,9167 |
+| Correctness  |         76,67 % |         93,33 % |
+| Faithfulness |         93,33 % |         93,33 % |
+| Relevance    |            80 % |         93,33 % |
+| Score global |         83,33 % |         93,33 % |
 
+La configuration B a été retenue comme configuration par défaut en raison de ses meilleurs résultats globaux sur la génération des réponses.
 
+## 6. Industrialisation et qualité
 
-\- Python 3.12
+Le projet intègre plusieurs mécanismes d'industrialisation :
 
-\- Git
+- **MLflow :** suivi des expériences et des métriques.
+- **Pytest :** exécution des tests automatisés.
+- **Quality Gates :** vérification des critères d'acceptation du projet.
+- **GitHub Actions :** automatisation des tests et contrôles qualité.
+- **SHA-256 :** vérification de l'intégrité des documents.
 
-\- Une clé API Groq valide
+Lors de la dernière validation locale, les contrôles qualité ont donné :
 
+- 14 contrôles réussis.
+- 0 contrôle échoué.
+- Décision finale : **ACCEPT**.
 
+Le rapport est disponible dans `reports/quality_gate_report.json`.
 
-\### Installation
+## 7. Lancement de l'application
 
-
-
-Cloner le dépôt :
-
-
+Après installation des dépendances et configuration de la clé API Groq dans le fichier `.env`, lancer l'application avec :
 
 ```bash
-
-git clone https://github.com/marouaelmrabet/ModaStyle.git
-
-cd ModaStyle
-
-```
-
-
-
-Créer et activer un environnement virtuel :
-
-
-
-```powershell
-
-python -m venv venv
-
-.\\venv\\Scripts\\Activate.ps1
-
-```
-
-
-
-Installer les dépendances :
-
-
-
-```bash
-
-pip install -r requirements.txt
-
-```
-
-
-
-\### Configuration de la clé API
-
-
-
-Créer un fichier `.env` à la racine du projet à partir de `.env.example`, puis renseigner :
-
-
-
-```text
-
-GROQ\_API\_KEY=votre\_cle\_api
-
-```
-
-
-
-\## 6. Corpus documentaire et indexation
-
-
-
-Le corpus documentaire contient les documents de référence de ModaStyle.
-
-
-
-Les documents sont organisés dans `data/raw/`. Le fichier `data/processed/manifest.json` permet de conserver les informations d'inventaire et les empreintes SHA256 des documents.
-
-
-
-Le projet compare deux configurations de découpage documentaire :
-
-
-
-\- Configuration A : chunks de 500 caractères avec chevauchement de 100.
-
-\- Configuration B : chunks de 800 caractères avec chevauchement de 120.
-
-
-
-Les embeddings sont générés avec Sentence Transformers et stockés dans ChromaDB.
-
-
-
-Les collections utilisées sont :
-
-
-
-\- `modastyle\_a`
-
-\- `modastyle\_b`
-
-
-
-La base vectorielle peut être reconstruite à partir des documents sources et des scripts d'indexation du projet.
-
-
-
-\## 7. Exécution de l'assistant
-
-
-
-L'interface web est lancée avec :
-
-
-
-```bash
-
 python -m uvicorn interface.app:app --reload
-
 ```
 
+Accéder à l'interface depuis :
 
+http://127.0.0.1:8000
 
-Ouvrir ensuite l'adresse suivante dans un navigateur :
+## 8. Documentation et reproductibilité
 
+Les procédures détaillées concernant l'installation, la configuration, la préparation du corpus, la reconstruction de la base vectorielle, les tests et l'exécution du projet sont présentées dans le document suivant :
 
+**Consulter le dossier de reproductibilité** : docs/DOSSIER_REPRODUCTIBILITE.md
 
-\[http://127.0.0.1:8000](http://127.0.0.1:8000)
+## 9. Limites et perspectives
 
+La qualité des réponses dépend de la couverture du corpus documentaire et de la pertinence des passages récupérés.
 
+Les principales perspectives d'amélioration sont :
 
-Le client peut poser ses questions à l'assistant et recevoir des réponses fondées sur les documents disponibles.
+- Enrichir le corpus documentaire.
+- Améliorer les stratégies de recherche.
+- Étendre le jeu d'évaluation.
+- Renforcer le monitoring de la latence, des erreurs et des coûts.
+- Améliorer continuellement les mécanismes de sécurité.
 
+## 10. Auteur et dépôt
 
+**Projet académique :** Industrialisation d'un assistant intelligent basé sur RAG.
 
-Un endpoint de santé est également disponible :
-
-
-
-```text
-
-http://127.0.0.1:8000/health
-
-```
-
-
-
-\## 8. Évaluation du système RAG
-
-
-
-Le projet comprend un jeu de questions permettant d'évaluer la recherche documentaire et la qualité des réponses générées.
-
-
-
-Les deux configurations A et B ont été comparées à l'aide de métriques telles que :
-
-
-
-\- Recall\\@5
-
-\- Precision\\@5
-
-\- MRR
-
-\- Pertinence des réponses
-
-\- Exactitude des réponses
-
-\- Fidélité au contexte documentaire
-
-
-
-Les résultats des expériences sont conservés dans les dossiers de rapports et de suivi du projet.
-
-
-
-La configuration B a été retenue comme configuration par défaut à la suite de l'évaluation réalisée.
-
-
-
-\## 9. Suivi des expériences avec MLflow
-
-
-
-MLflow est utilisé pour suivre les expériences d'évaluation du système RAG.
-
-
-
-Il permet de conserver les paramètres, les métriques et les résultats associés aux différentes configurations testées.
-
-
-
-\## 10. Tests et contrôles qualité
-
-
-
-Le projet intègre des tests automatisés avec Pytest.
-
-
-
-Les contrôles qualité portent notamment sur :
-
-
-
-\- Le fonctionnement du code.
-
-\- La validité des configurations.
-
-\- La cohérence du corpus documentaire.
-
-\- Le stockage des documents dans ChromaDB.
-
-\- La qualité des résultats de recherche.
-
-\- La sécurité et le comportement de l'assistant.
-
-\- Le bon démarrage de l'application.
-
-
-
-Un script de contrôle qualité est disponible dans `scripts/quality\_gate.py`.
-
-
-
-Pour lancer les tests :
-
-
-
-```bash
-
-python -m pytest -v
-
-```
-
-
-
-\## 11. Reproductibilité
-
-
-
-Pour reproduire le projet :
-
-
-
-1\. Récupérer le dépôt Git.
-
-2\. Installer Python 3.12.
-
-3\. Créer un environnement virtuel.
-
-4\. Installer les dépendances depuis `requirements.txt`.
-
-5\. Configurer la variable `GROQ\_API\_KEY`.
-
-6\. Reconstruire la base vectorielle à partir du corpus source à l'aide des scripts d'indexation.
-
-7\. Lancer les tests.
-
-8\. Démarrer l'application FastAPI.
-
-
-
-Les environnements virtuels, les secrets et les bases de données locales ne sont pas versionnés dans Git.
-
-
-
-\## 12. Limites et perspectives
-
-
-
-Le système dépend de la qualité et de la couverture du corpus documentaire.
-
-
-
-Une information absente des documents ne peut pas être garantie par l'assistant. La qualité des réponses doit donc être contrôlée régulièrement.
-
-
-
-Les améliorations possibles comprennent :
-
-
-
-\- L'enrichissement du corpus documentaire.
-
-\- L'amélioration des stratégies de recherche.
-
-\- L'élargissement du jeu d'évaluation.
-
-\- Le renforcement du monitoring de la latence, des erreurs et des coûts.
-
-\- L'amélioration des contrôles de sécurité.
-
-
-
-\## 13. Auteur et dépôt
-
-
-
-Projet académique : industrialisation d'un assistant RAG.
-
-
-
-Dépôt GitHub : https://github.com/marouaelmrabet/ModaStyle
-
-
-
+**Dépôt GitHub :**
+https://github.com/marouaelmrabet/ModaStyle
