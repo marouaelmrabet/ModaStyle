@@ -1,4 +1,4 @@
-\# ModaStyle — Assistant intelligent RAG
+ModaStyle — Assistant intelligent RAG
 
 
 
